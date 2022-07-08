@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+:root {
+    --purple: #814096;
+    --pink: #f83292;
+    --gradient: linear-gradient(90deg, var(--purple), var(--pink));
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+
+*::selection {
+    background: var(--pink);
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: #f9f9f9;
+}
+
+section {
+    min-height: 100vh;
+    padding: 0 9%;
+    padding-top: 7.5rem;
+    padding-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 3rem;
+    border-radius: 5rem;
+    background: var(--gradient);
+    font-size: 1.7rem;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: all 0.3s linear;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.heading {
+    text-align: center;
+    background: var(--gradient);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+.express {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+}
+
+.express .image {
+    flex: 1 1 40rem;
+}
+
+.express .image img {
+    width: 100%;
+    padding: 2rem;
+}
+
+.express form {
+    flex: 1 1 40rem;
+    padding: 2rem 3rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    background: #fff;
+}
+
+.express form .heading {
+    text-align: left;
+    padding: 0;
+    padding-bottom: 2rem;
+}
+
+.express form .inputBox {
+    position: relative;
+}
+
+.express form .inputBox input,
+.express form .inputBox textarea {
+    width: 100%;
+    background: none;
+    color: #666;
+    margin: 1.5rem 0;
+    padding: 0.5rem 0;
+    font-size: 1.7rem;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+    text-transform: none;
+}
+
+.express form .inputBox textarea {
+    resize: none;
+    height: 13rem;
+}
+
+.express form .inputBox label {
+    position: absolute;
+    top: 1.7rem;
+    left: 0;
+    font-size: 1.7rem;
+    color: #666;
+    transition: 0.2s linear;
+}
+
+.express form .inputBox input:focus ~ label,
+.express form .inputBox input:valid ~ label,
+.express form .inputBox textarea:focus ~ label,
+.express form .inputBox textarea:valid ~ label {
+    top: -0.5rem;
+    font-size: 1.5rem;
+    color: var(--pink);
+}
+
+.laundry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+}
+
+.laundry .image {
+    flex: 1 1 40rem;
+}
+
+.laundry .image img {
+    width: 100%;
+    padding: 2rem;
+}
+
+.laundry form {
+    flex: 1 1 40rem;
+    padding: 2rem 3rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    background: #fff;
+}
+
+.laundry form .heading {
+    text-align: left;
+    padding: 0;
+    padding-bottom: 2rem;
+}
+
+.laundry form .inputBox {
+    position: relative;
+}
+
+.laundry form .inputBox input,
+.laundry form .inputBox textarea {
+    width: 100%;
+    background: none;
+    color: #666;
+    margin: 1.5rem 0;
+    padding: 0.5rem 0;
+    font-size: 1.7rem;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+    text-transform: none;
+}
+
+.laundry form .inputBox textarea {
+    resize: none;
+    height: 13rem;
+}
+
+.laundry form .inputBox label {
+    position: absolute;
+    top: 1.7rem;
+    left: 0;
+    font-size: 1.7rem;
+    color: #666;
+    transition: 0.2s linear;
+}
+
+.laundry form .inputBox input:focus ~ label,
+.laundry form .inputBox input:valid ~ label,
+.laundry form .inputBox textarea:focus ~ label,
+.laundry form .inputBox textarea:valid ~ label {
+    top: -0.5rem;
+    font-size: 1.5rem;
+    color: var(--pink);
+}
+
+.nota {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+}
+.nota form {
+    flex: 1 1 40rem;
+    padding: 2rem 3rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    background: #fff;
+}
+
+.nota form .heading {
+    text-align: left;
+    padding: 0;
+    padding-bottom: 2rem;
+}
+
+.notaform .inputBox {
+    position: relative;
+}
+
+.nota form .inputBox input,
+.nota form .inputBox textarea {
+    width: 100%;
+    background: none;
+    color: #666;
+    margin: 1.5rem 0;
+    padding: 0.5rem 0;
+    font-size: 1.7rem;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+    text-transform: none;
+}
+
+.nota form .inputBox textarea {
+    resize: none;
+    height: 13rem;
+}
+
+.nota form .inputBox label {
+    position: absolute;
+    top: 1.7rem;
+    left: 0;
+    font-size: 1.7rem;
+    color: #666;
+    transition: 0.2s linear;
+}
+
+.nota form .inputBox input:focus ~ label,
+.nota form .inputBox input:valid ~ label,
+.nota form .inputBox textarea:focus ~ label,
+.nota form .inputBox textarea:valid ~ label {
+    top: -0.5rem;
+    font-size: 1.5rem;
+    color: var(--pink);
+}
+@media (max-width: 991px) {
+    section {
+        padding: 0 3%;
+        padding-top: 7.5rem;
+        padding-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 1rem 2rem;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: 0.2s linear;
+    }
+
+    header .navbar a {
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
+
+    header input:checked ~ .navbar {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header input:checked ~ label::before {
+        content: "\f00d";
+    }
+
+    .home {
+        flex-flow: column-reverse;
+    }
+
+    .home .image img {
+        width: 100%;
+    }
+
+    .home .content h3 {
+        font-size: 3.6rem;
+    }
+
+    .home .content p {
+        font-size: 1.5rem;
+    }
+
+    .about {
+        background-position: right;
+    }
+
+    .newsletter p {
+        width: auto;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .about .column .content .buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .about .column .content .buttons a:last-child {
+        margin: 1rem 0;
+    }
+}

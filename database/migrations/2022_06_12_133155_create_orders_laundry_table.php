@@ -21,9 +21,9 @@ class CreateOrdersLaundryTable extends Migration
             $table->string('user_name');
             $table->string('user_phone');
             $table->string('user_address');
-            $table->date('date_drop_laundry');
-            $table->date('date_take_laundry');
-            $table->date('date_finish_laundry');
+            $table->date('date_drop_laundry')->nullable();
+            $table->date('date_take_laundry')->nullable();
+            $table->date('date_finish_laundry')->nullable();
             $table->string('status');
             $table->timestamps();
 

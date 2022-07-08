@@ -15,11 +15,11 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('admin')->insert([
-            'name' => 'admin',
-            'image' => null,
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('password'),
+          DB::table('admin')->insert([
+            'name' => 'admin1',
+            'image' => 'logo',
+            'email' => 'admin1@gmail.com',
+            'password' => Hash::make('11112222'),
             'created_at' => date("Y-m-d H-i-s"),
             'updated_at' => date("Y-m-d H-i-s"),
         ]);

@@ -3,9 +3,10 @@ namespace App\Models;
 
 use Crocodic\LaravelModel\Core\Model;
 
+
 class UsersModel extends Model
 {
-    
+	
 	public $id;
 	public $name;
 	public $email;
@@ -14,5 +15,6 @@ class UsersModel extends Model
 	public $remember_token;
 	public $created_at;
 	public $updated_at;
+
 
 }

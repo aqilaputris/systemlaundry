@@ -1,10 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Backend\User\UserController;
+use App\Http\Controllers\Backend\Package\PackageController;
+use App\Http\Controllers\Backend\Listorder\ListorderController;
+
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routess
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -16,3 +23,57 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/backend/dashboard',[DashboardController::class, 'getIndex']);
+Route::get('/backend/posts',[DashboardController::class, 'getPosts']);
+
+Route::get('/admin/auth/login', [AuthController::class, 'getLogin']);
+Route::post('/admin/auth/postlogin', [AuthController::class, 'postLogin'])->name('postLogin');
+
+    // USERS
+Route::get('/backend/user/index',[UserController::class, 'getIndex']);
+Route::get('/backend/user/formadd',[UserController::class, 'getAdd']);
+Route::post('/backend/user/insertformadd',[UserController::class, 'postSave']);
+Route::get('/backend/user/formedit/{id}',[UserController::class, 'getEdit']);
+Route::post('/backend/user/updateformedit/{id}',[UserController::class, 'postEdit']);
+Route::get('/backend/user/detailusers/{id}',[UserController::class, 'getDetail']);
+Route::get('/backend/user/delete/{id}',[UserController::class, 'getDelete']);
+
+    // PACKAGE
+Route::get('/backend/package/index',[PackageController::class, 'getIndex']);
+Route::get('/backend/package/formadd',[PackageController::class, 'getAdd']);
+Route::post('/backend/package/insertformadd',[PackageController::class, 'postSave']);
+Route::get('/backend/package/formedit/{id}',[PackageController::class, 'getEdit']);
+Route::post('/backend/package/updateformedit/{id}',[PackageController::class, 'postEdit']);
+Route::get('/backend/package/detailpackage/{id}',[PackageController::class, 'getDetail']);
+Route::get('/backend/package/delete/{id}',[PackageController::class, 'getDelete']);
+ 
+    // LIST ORDER
+Route::get('/backend/listorder/index',[ListorderController::class, 'getIndex']);
+Route::get('/backend/listorder/formadd',[ListorderController::class, 'getAdd']);
+Route::post('/backend/listorder/insertformadd',[ListorderController::class, 'postSave']);
+Route::get('/backend/listorder/formedit/{id}',[ListorderController::class, 'getEdit']);
+Route::post('/backend/listorder/updateformedit/{id}',[ListorderController::class, 'postEdit']);
+Route::get('/backend/listorder/detaillistorder/{id}',[ListorderController::class, 'getDetail']);
+Route::get('/backend/listorder/delete/{id}',[ListorderController::class, 'getDelete']);
+
+    // CRUD EXCEL
+Route::get('/listtoday',[ListorderController::class, 'index']);
+Route::get('/listtoday/export_excel',[ListorderController::class, 'export_excel']);
+
+    // FRONTEND
+Route::get('/frontend',[FrontendController::class, 'index']);
+Route::get('/frontend/order',[FrontendController::class, 'order']);
+
+Route::get('/frontend/nota',[FrontendController::class, 'nota']);
+Route::get('/frontend/printnota',[FrontendController::class, 'printnota']);
+
+Route::get('/frontend/express',[FrontendController::class, 'express']);
+Route::post('/frontend/express',[FrontendController::class, 'postSave']);
+Route::get('/frontend/express/cari',[FrontendController::class, 'cari'])->name('cari');
+
+Route::get('/frontend/laundry',[FrontendController::class, 'laundry']);
+Route::post('/frontend/laundry',[FrontendController::class, 'postSave']);
+Route::get('/frontend/laundry/cari',[FrontendController::class, 'mencari'])->name('mencari');
+
+Route::get('/frontend/ambilpaket',[FrontendController::class, 'ambilpaket']);
