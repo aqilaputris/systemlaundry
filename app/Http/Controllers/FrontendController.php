@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\OrdersLaundryModel;
 use App\Models\PackageModel;
 
@@ -29,7 +30,7 @@ class FrontendController extends Controller
         $data->user_phone = $request->user_phone;
         $data->user_address = $request->user_address;
         $data->date_drop_laundry = $request->date_drop_laundry;
-        $data->status = 'Baru';
+        $data->status = 'Drop';
 
         $data->save();
         // return view()
@@ -79,14 +80,16 @@ class FrontendController extends Controller
         return view('frontend.formorderlaundry', $data);
     }
 
-    public function ambilpaket()
-    {
-        $data['data'] = DB::table('orders_laundry')
-        ->join('package','package.id','=','orders_laundry.package_id')
-        ->select('orders_laundry.*','package.type','package.name','package.price')->where('orders_laundry.id', $lastId)->first();
-
-        return view('frontend.ambilpaket');
-    } 
+    public function ambilpaket(Request $request)
+     {
+     if ($request->type != '') {
+         $data['errors'] = DB::table('orders_laundry')
+           ->where('code_order', $request->status)->get();
+       } else if ($request->status != '') {
+         $data['errors'] = DB::table('orders_laundry')->where('status', $request->status)->get();
+       }
+         return redirect('/frontend');
+     } 
 
     public static function getId(Request $request)
     {

@@ -90,6 +90,7 @@ class ListorderController extends Controller
         $data->user_name = $request->user_name;
         $data->user_phone = $request->user_phone;
         $data->user_address = $request->user_address;
+        $data->status = $request->status;
         $data->save();
 
       return redirect('backend/listorder/index');

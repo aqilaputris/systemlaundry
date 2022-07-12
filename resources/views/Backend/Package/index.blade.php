@@ -31,6 +31,7 @@
                     <input type="text" name="keyword" />
                     <button class="btn-xs-flat btn-success" type="submit">Search</button>
                     <button class="btn-xs-flat btn-success" type="submit">Filter</button>
+                    <a class="btn btn-md btn-warning" href="{{url('backend/listorder/index')}}" style="float: right; margin-right: 15px;">Reset</a>
       </form>
         <br />
           <table class="table table-bordered">

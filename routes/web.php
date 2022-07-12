@@ -24,12 +24,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/backend/dashboard',[DashboardController::class, 'getIndex']);
-Route::get('/backend/posts',[DashboardController::class, 'getPosts']);
-
-Route::get('/admin/auth/login', [AuthController::class, 'getLogin']);
+Route::get('/admin/auth/login', [AuthController::class, 'login'])->name('login');
 Route::post('/admin/auth/postlogin', [AuthController::class, 'postLogin'])->name('postLogin');
 
+
+Route::group(['middleware' => 'ceklevel'], function () {
+Route::get('/backend/dashboard',[DashboardController::class, 'getIndex']);
     // USERS
 Route::get('/backend/user/index',[UserController::class, 'getIndex']);
 Route::get('/backend/user/formadd',[UserController::class, 'getAdd']);
@@ -38,7 +38,6 @@ Route::get('/backend/user/formedit/{id}',[UserController::class, 'getEdit']);
 Route::post('/backend/user/updateformedit/{id}',[UserController::class, 'postEdit']);
 Route::get('/backend/user/detailusers/{id}',[UserController::class, 'getDetail']);
 Route::get('/backend/user/delete/{id}',[UserController::class, 'getDelete']);
-
     // PACKAGE
 Route::get('/backend/package/index',[PackageController::class, 'getIndex']);
 Route::get('/backend/package/formadd',[PackageController::class, 'getAdd']);
@@ -47,7 +46,6 @@ Route::get('/backend/package/formedit/{id}',[PackageController::class, 'getEdit'
 Route::post('/backend/package/updateformedit/{id}',[PackageController::class, 'postEdit']);
 Route::get('/backend/package/detailpackage/{id}',[PackageController::class, 'getDetail']);
 Route::get('/backend/package/delete/{id}',[PackageController::class, 'getDelete']);
- 
     // LIST ORDER
 Route::get('/backend/listorder/index',[ListorderController::class, 'getIndex']);
 Route::get('/backend/listorder/formadd',[ListorderController::class, 'getAdd']);
@@ -56,10 +54,11 @@ Route::get('/backend/listorder/formedit/{id}',[ListorderController::class, 'getE
 Route::post('/backend/listorder/updateformedit/{id}',[ListorderController::class, 'postEdit']);
 Route::get('/backend/listorder/detaillistorder/{id}',[ListorderController::class, 'getDetail']);
 Route::get('/backend/listorder/delete/{id}',[ListorderController::class, 'getDelete']);
-
     // CRUD EXCEL
 Route::get('/listtoday',[ListorderController::class, 'index']);
 Route::get('/listtoday/export_excel',[ListorderController::class, 'export_excel']);
+});
+
 
     // FRONTEND
 Route::get('/frontend',[FrontendController::class, 'index']);

@@ -11,6 +11,7 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="style.css">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
 
 </head>
 <body>
@@ -228,7 +229,7 @@
 
 <!-- ambilpaket section starts  -->
 
-<section class="ambilpaket" id="ambilpaket">
+<section class="ambilpaket">
 
     <div class="image">
         <img src="images/printnota.png" alt="">
@@ -238,14 +239,12 @@
 
         <h1 class="heading">Ambil Paket</h1>
 
-        <input type="hidden" name="tipe" value="express" >
-        <div class="inputBox">
-            <input type="text" value="{{ $errors }}" name="code_order" required>
+        <div class="inputBox"> 
+            <input type="text" name="code_order" required>
             <label>Code Order</label>
         </div>
 
-        <button  type="submit" class="btn">Ambil Paket</button>
-
+        <button type="submit" class="btn" id="ambilpaket">Ambil Paket</button> 
 
     </form>
 
@@ -308,7 +307,31 @@
 <!-- footer section ends -->
 
     <!-- JS sweet alert -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- JS sweet alert end -->
+
+    <script>
+$('#ambilpaket').click( function(){
+  swal({
+    title: "Yakin ?",
+    text: "apakah anda yakin mau mengambil paket??",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      window.location = "/frontend/ambilpaket"
+      swal("paket berhasil diambil!", {
+        icon: "success",
+      });
+    } else {
+      swal("paket tidak jadi diambil!");
+    }
+  });
+});
+</script>
+
 </body>
 </html>

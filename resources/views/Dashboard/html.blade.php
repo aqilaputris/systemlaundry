@@ -95,7 +95,7 @@
                 </table>
             @else
                 <div class="alert alert-info" role="alert">
-                    Anda tidak memiliki kategori terbaru hari ini
+                    Anda tidak memiliki post terbaru hari ini
                 </div>
             @endif
         </div>
