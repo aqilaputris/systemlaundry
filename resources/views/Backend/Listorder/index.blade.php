@@ -31,8 +31,41 @@
                 <form method="GET" action="{{ url('backend/listorder/index') }}">
                     <input type="text" name="keyword" />
                     <button class="btn-xs-flat btn-success" type="submit">Search</button>
-                    <button class="btn-xs-flat btn-success" type="submit">Filter</button>
-                    <a class="btn btn-md btn-warning" href="{{url('backend/listorder/index')}}" style="float: right; margin-right: 15px;">Reset</a>
+                    <button class="btn-xs-flat btn-success" type="submit" id="#filter">Filter</button>
+                    <!-- <a class="btn btn-md btn-warning" href="{{url('backend/listorder/index')}}" style="float: right; margin-right: 15px;">Reset</a> -->
+                    <div id="filter">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Filter</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div class="row">
+                              <form autocomplete="off" method="get" action="{{ url('backend/dashboard') }}" enctype="multipart/form-data">
+                                  <div class="col-md-3">
+                                      <p style="font-size: 14px">Isi Filter</p>
+                                      <select class="form-control" name="type">
+                                          <option value=""></option>
+                                          <option value="Express" <?php echo (g('type') ==  'EX') ? ' selected="selected"' : '';?>>EX</option>
+                                          <option value="Laundry" <?php echo (g('type') ==  'LD') ? ' selected="selected"' : '';?>>LD</option>
+                                      </select>
+                                      <br>
+                                      <p style="font-size: 14px">Isi Filter</p>
+                                      <select class="form-control" name="status">
+                                          <option value=""></option>
+                                          <option value="Drop" <?php echo (g('status') ==  'Drop') ? ' selected="selected"' : '';?>>Drop</option>
+                                          <option value="Take" <?php echo (g('status') ==  'Take') ? ' selected="selected"' : '';?>>Take</option>
+                                          <option value="Finish" <?php echo (g('status') ==  'Finish') ? ' selected="selected"' : '';?>>Finish</option>
+                                      </select>
+                                  </div>
+                                  <div class="col-md-3">
+                                      
+                                      <button type="submit" class="btn btn-primary" style="float: right;">Filter</button>
+                                      
+                                      <a class="btn btn-warning" href="{{url('backend/listorder/index')}}" style="float: right; margin-right: 4px;">Reset</a>
+                                  </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
                 </form>
                 <br />
                 <div class="row">

@@ -35,7 +35,8 @@ class ListorderController extends Controller
       $data['errors'] = DB::table('orders_laundry')
         ->join('package', 'package.id', '=', 'orders_laundry.package_id')
         ->where('package.type', $request->type)->paginate(5);
-    } else if ($request->status != '') {
+    } 
+    if ($request->status != '') {
       $data['errors'] = DB::table('orders_laundry')->where('status', $request->status)->paginate(5);
     }
     return view('backend.listorder.index', $data);
