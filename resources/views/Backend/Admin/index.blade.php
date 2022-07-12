@@ -20,18 +20,16 @@
     <title>Tampilan Crud User</title>
   </head>
   <body>
-    <h1 class="text-center mb-4">User</h1>
+    <h1 class="text-center mb-4">Admin</h1>
 
     <div class="container">
       <div class="container">
-        <a href="{{url('backend/user/formadd')}}" type="button" class="btn btn-success">Add+</a><br></br>
+        <a href="{{url('backend/admin/formadd')}}" type="button" class="btn btn-success">Add+</a><br></br>
       <div class="row g-3 align-items-center mb-3">
         <div class="col-auto">
-        <form method="GET" action="{{ url('backend/listorder/index') }}">
+        <form method="GET" action="{{ url('backend/admin/index') }}">
                     <input type="text" name="keyword" />
                     <button class="btn-xs-flat btn-success" type="submit">Search</button>
-                    <button class="btn-xs-flat btn-success" type="submit">Filter</button>
-                    <a class="btn btn-md btn-warning" href="{{url('backend/listorder/index')}}" style="float: right; margin-right: 15px;">Reset</a>
                 </form>
                 <br />
         </div>
@@ -54,9 +52,9 @@
                 <td>{{ $data->name }}</td>
                 <td>{{ $data->email }}</td>
                 <td>
-                  <a href="{{url('/backend/user/detailusers/'.$data->id)}}" class="btn btn-secondary"><i class="fas fa-file-alt"></i></a>
-                  <a href="{{url('/backend/user/formedit/'.$data->id)}}" class="btn btn-warning"><i class="fa fa-light fa-pen"></i></a>
-                  <a href="{{url('/backend/user/delete/'.$data->id)}}"  class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                  <a href="{{url('/backend/admin/detailadmin/'.$data->id)}}" class="btn btn-secondary"><i class="fas fa-file-alt"></i></a>
+                  <a href="{{url('/backend/admin/formedit/'.$data->id)}}" class="btn btn-warning"><i class="fa fa-light fa-pen"></i></a>
+                  <a href="{{url('/backend/admin/delete/'.$data->id)}}"  class="btn btn-danger"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
           @endforeach

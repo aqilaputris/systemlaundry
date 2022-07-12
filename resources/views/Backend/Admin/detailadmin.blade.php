@@ -13,7 +13,7 @@
             <th>{{ $user->email }}</th>
         </tr>
         <tr>
-            <th><a href="{{url('/backend/user/index')}}" class="btn btn-succes tbn-sm">Back</a></th>
+            <th><a href="{{url('/backend/admin/index')}}" class="btn btn-succes tbn-sm">Back</a></th>
         </tr>
     </table>
 @endsection

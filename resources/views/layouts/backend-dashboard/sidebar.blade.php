@@ -35,10 +35,10 @@
                   </p>
                 </a>
               <li class="nav-item">
-                <a href="{{url('backend/user/index')}}" class="nav-link">
+                <a href="{{url('backend/admin/index')}}" class="nav-link">
                 <i class="fa fa-user"></i>
                   <p>
-                    User
+                    Admin
                   </p>
                 </a>
               </li>

@@ -19,9 +19,9 @@ class PackageController extends Controller
     } else {
       //data search
       $data['errors'] = DB::table('package')
-        ->where('name', 'LIKE', '%' . $keyword . '%')
-        ->orWhere('email', 'LIKE', '%' . $keyword . '%')
-        ->orWhere('password', 'LIKE', '%' . $keyword . '%')->paginate(5);
+        ->where('type', 'LIKE', '%' . $keyword . '%')
+        ->orWhere('name', 'LIKE', '%' . $keyword . '%')
+        ->orWhere('price', 'LIKE', '%' . $keyword . '%')->paginate(5);
     }
     return view('backend.package.index', $data);
   }

@@ -1,6 +1,7 @@
 @extends('layouts.backend-dashboard.app')
 
-@section('content')
+@section('content') 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +16,7 @@
   </head>
 
   <body>
-    <h1 class="text-center mb-4">User Edit</h1>
+    <h1 class="text-center mb-4">User Add</h1>
 
     <div class="container">
       <div class="container">
@@ -23,17 +24,21 @@
             <div class="col-8">
                 <div class="card">
                     <div class="card-body">
-                    <form action="{{url('/backend/user/updateformedit/'.$user->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{url('/backend/admin/insertformadd')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $user->name }}">
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$user->email }}">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
-                        <a href="{{url('backend/user/index')}}" type="submit" class="btn btn-primary">Back</a>
+                        <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <a href="{{url('backend/admin/index')}}" type="submit" class="btn btn-primary">Back</a>
                         <button type="submit" style="float: right" class="btn btn-primary">Submit</button>
                     </form>
                     </div>
@@ -50,5 +55,4 @@
   </body>
 </html>
 
-@endsection
-
+@endsection 

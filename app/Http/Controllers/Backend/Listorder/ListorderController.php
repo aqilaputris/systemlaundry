@@ -112,9 +112,21 @@ class ListorderController extends Controller
        return redirect('backend/listorder/index');
      }
 
-     public function index()
+     public function index(Request $request)
 	{
 		$data ['excel'] = OrdersLaundryModel::findAll();
+
+    if ($request->date_drop_laundry != '') {
+    $data['errors'] = DB::table('orders_laundry')
+    ->where('orders_laundry.date_drop_laundry', $request->date_drop_laundry)->paginate(5);
+    whereMonth('date_drop_laundry', $request->input('mn'))
+    ->whereYear('date_drop_laundry', $request->input('yr'))
+    ->get();
+    }
+    if ($request->status != '') {
+      $data['errors'] = DB::table('orders_laundry')->where('status', $request->status)->paginate(5);
+    }
+
 		return view('backend/crudexcel/index',['excel'=>$data]);
 	}
  
@@ -123,4 +135,5 @@ class ListorderController extends Controller
 		return Excel::download(new ListOrderExport, 'listorder.xlsx');
 	}
 }
+
 
