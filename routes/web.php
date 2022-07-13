@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\Backend\User\UserController;
+use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Package\PackageController;
 use App\Http\Controllers\Backend\Listorder\ListorderController;
 
@@ -31,13 +31,13 @@ Route::post('/admin/auth/postlogin', [AuthController::class, 'postLogin'])->name
 Route::group(['middleware' => 'ceklevel'], function () {
 Route::get('/backend/dashboard',[DashboardController::class, 'getIndex']);
     // ADMIN
-Route::get('/backend/admin/index',[UserController::class, 'getIndex']);
-Route::get('/backend/admin/formadd',[UserController::class, 'getAdd']);
-Route::post('/backend/admin/insertformadd',[UserController::class, 'postSave']);
-Route::get('/backend/admin/formedit/{id}',[UserController::class, 'getEdit']);
-Route::post('/backend/admin/updateformedit/{id}',[UserController::class, 'postEdit']);
-Route::get('/backend/admin/detailusers/{id}',[UserController::class, 'getDetail']);
-Route::get('/backend/admin/delete/{id}',[UserController::class, 'getDelete']);
+Route::get('/backend/admin/index',[AdminController::class, 'getIndex']);
+Route::get('/backend/admin/formadd',[AdminController::class, 'getAdd']);
+Route::post('/backend/admin/insertformadd',[AdminController::class, 'postSave']);
+Route::get('/backend/admin/formedit/{id}',[AdminController::class, 'getEdit']);
+Route::post('/backend/admin/updateformedit/{id}',[AdminController::class, 'postEdit']);
+Route::get('/backend/admin/detailadmin/{id}',[AdminController::class, 'getDetail']);
+Route::get('/backend/admin/delete/{id}',[AdminController::class, 'getDelete']);
     // PACKAGE
 Route::get('/backend/package/index',[PackageController::class, 'getIndex']);
 Route::get('/backend/package/formadd',[PackageController::class, 'getAdd']);

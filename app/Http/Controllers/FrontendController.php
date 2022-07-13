@@ -16,10 +16,6 @@ class FrontendController extends Controller
         return view('frontend.index');
     }
     
-    public function order()
-    {
-        
-    }
     
     public function postSave(Request $request) {
         $data = new OrdersLaundryModel();
@@ -29,7 +25,7 @@ class FrontendController extends Controller
         $data->user_name = $request->user_name;
         $data->user_phone = $request->user_phone;
         $data->user_address = $request->user_address;
-        $data->date_drop_laundry = $request->date_drop_laundry;
+        $data->date_drop_laundry = now();
         $data->status = 'Drop';
 
         $data->save();
@@ -82,12 +78,12 @@ class FrontendController extends Controller
 
     public function ambilpaket(Request $request)
      {
-     if ($request->type != '') {
-         $data['errors'] = DB::table('orders_laundry')
-           ->where('code_order', $request->status)->get();
-       } else if ($request->status != '') {
-         $data['errors'] = DB::table('orders_laundry')->where('status', $request->status)->get();
-       }
+        if ($request->code_order != '') {
+            $data['status'] = 'Finish';
+            $data['date_finish_laundry'] = now();
+
+            DB::table('orders_laundry')->where('code_order',g('code_order'))->update($data);
+        }
          return redirect('/frontend');
      } 
 

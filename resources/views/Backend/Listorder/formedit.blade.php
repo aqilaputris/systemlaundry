@@ -53,9 +53,7 @@
                         <label for="exampleInputEmail1" class="form-label">Status</label>
                             <!-- <input type="text" name="status" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $listorder->status }}"> -->
                             <select name="status" >
-                                <option value="Drop" >Drop</option>
                                 <option value="Take" >Take</option>
-                                <option value="Finish" >Finish</option>
                             </select>
                         </div>
                         <a href="{{url('backend/listorder/index')}}" type="submit" class="btn btn-primary">Back</a>

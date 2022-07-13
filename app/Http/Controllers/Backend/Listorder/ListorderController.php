@@ -114,20 +114,34 @@ class ListorderController extends Controller
 
      public function index(Request $request)
 	{
-		$data ['excel'] = OrdersLaundryModel::findAll();
-
-    if ($request->date_drop_laundry != '') {
-    $data['errors'] = DB::table('orders_laundry')
-    ->where('orders_laundry.date_drop_laundry', $request->date_drop_laundry)->paginate(5);
-    whereMonth('date_drop_laundry', $request->input('mn'))
-    ->whereYear('date_drop_laundry', $request->input('yr'))
-    ->get();
+		
+    if($request->day != '' && $request->month != '')
+    {
+      $data['coba'] = DB::table('orders_laundry')
+      ->whereDay('date_drop_laundry', $request->day)
+      ->whereMonth('date_drop_laundry', $request->month)
+      ->get();
     }
-    if ($request->status != '') {
-      $data['errors'] = DB::table('orders_laundry')->where('status', $request->status)->paginate(5);
+    elseif ($request->day != '' && $request->month == '') 
+    {
+      $data['coba'] = DB::table('orders_laundry')
+      ->whereDay('date_drop_laundry', $request->day)
+      ->get();
     }
+    elseif($request->day == '' && $request->month != '')
+    {
+      $data['coba'] = DB::table('orders_laundry')
+      ->whereMonth('date_drop_laundry', $request->month)->get();
+    }
+    else
+    {
+      $data ['coba'] = OrdersLaundryModel::findAll();
+    }
+    // if ($request->status != '') {
+    //   $data['errors'] = DB::table('orders_laundry')->where('status', $request->status)->paginate(5);
+    // }
 
-		return view('backend/crudexcel/index',['excel'=>$data]);
+		return view('backend/crudexcel/index', $data);
 	}
  
 	public function export_excel()

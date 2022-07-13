@@ -32,11 +32,11 @@
                         </div>
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="name" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Price</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="price" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <a href="{{url('backend/package/index')}}" type="submit" class="btn btn-primary">Back</a>
                         <button type="submit" style="float: right" class="btn btn-primary">Submit</button>

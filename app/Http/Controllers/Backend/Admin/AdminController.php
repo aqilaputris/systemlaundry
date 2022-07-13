@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\User;
+namespace App\Http\Controllers\Backend\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminModel;
@@ -10,17 +10,17 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 
-class UserController extends Controller
+class AdminController extends Controller
 {
   public function getIndex(Request $request)
   {
     $keyword = $request->keyword;
     //data index
     if (!$keyword) {
-      $data['errors'] = DB::table('users')->orderBy('id', 'desc')->paginate(5);
+      $data['errors'] = DB::table('admin')->orderBy('id', 'desc')->paginate(5);
     } else {
       //data search
-      $data['errors'] = DB::table('users')
+      $data['errors'] = DB::table('admin')
         ->where('name', 'LIKE', '%' . $keyword . '%')
         ->orWhere('email', 'LIKE', '%' . $keyword . '%')
         ->orWhere('password', 'LIKE', '%' . $keyword . '%')->paginate(5);
@@ -37,7 +37,6 @@ class UserController extends Controller
   {
     $data = new AdminModel();
     $data->name = $request->name;
-    $data->image = $request->image;
     $data->email = $request->email;
     $data->password = Hash::make($request->password);
 
@@ -47,9 +46,9 @@ class UserController extends Controller
   // Edit
   public function getEdit($id)
   {
-    $data['user'] = AdminModel::findById($id);
+    $data['admin'] = AdminModel::findById($id);
 
-    return view('backend/admin/formedit', ['user' => $data['user']]);
+    return view('backend/admin/formedit', ['admin' => $data['admin']]);
   }
 
   // Menyimpan Data  Edit
@@ -57,7 +56,6 @@ class UserController extends Controller
   {
     $data =  AdminModel::findById($id);
     $data->name = $request->name;
-    $data->image = $request->image;
     $data->email = $request->email;
     $data->save();
 
@@ -69,8 +67,8 @@ class UserController extends Controller
 
   public function getDetail($id)
   {
-    $user = AdminModel::find($id);
-    return view('backend/admin/detail\admin', ["user" => $user]);
+    $admin = AdminModel::find($id);
+    return view('backend/admin/detailadmin', ["admin" => $admin]);
   }
 
   // Menghapus Data

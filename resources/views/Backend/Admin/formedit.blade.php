@@ -11,11 +11,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Tampilan Crud User</title>
+    <title>Tampilan Crud Admin</title>
   </head>
 
   <body>
-    <h1 class="text-center mb-4">User Edit</h1>
+    <h1 class="text-center mb-4">Admin Edit</h1>
 
     <div class="container">
       <div class="container">
@@ -23,15 +23,15 @@
             <div class="col-8">
                 <div class="card">
                     <div class="card-body">
-                    <form action="{{url('/backend/admin/updateformedit/'.$user->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{url('/backend/admin/updateformedit/'.$admin->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $user->name }}">
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $admin->name }}">
                         </div>
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$user->email }}">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$admin->email }}">
                         </div>
                         <a href="{{url('backend/admin/index')}}" type="submit" class="btn btn-primary">Back</a>
                         <button type="submit" style="float: right" class="btn btn-primary">Submit</button>

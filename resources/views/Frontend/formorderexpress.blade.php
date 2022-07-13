@@ -62,11 +62,6 @@
             <label>Price</label>
         </div> 
 
-        <div class="inputBox">
-            <input type="text" name="date_drop_laundry" required>
-            <label>Date Drop</label>
-        </div>
-
 
         <button  type="submit" class="btn">Order</button>
 

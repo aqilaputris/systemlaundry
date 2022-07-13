@@ -12,10 +12,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Tampilan Crud List Order</title>
+    <title>Tampilan Crud Export Excel</title>
   </head>
   <body>
-    <h1 class="text-center mb-4">List Order</h1>
+    <h1 class="text-center mb-4">Export Excel</h1>
 
     <div class="container">
             <div class="container">
@@ -37,19 +37,21 @@
                               <form autocomplete="off" method="get" action="{{ url('backend/dashboard') }}" enctype="multipart/form-data">
                                   <div class="col-md-3">
                                       <p style="font-size: 14px">Isi Filter</p>
-                                      <select class="form-control" name="type">
+                                      <!-- <select class="form-control" name="date_drop_laundry">
                                           <option value=""></option>
-                                          <option value="Express" <?php echo (g('type') ==  'EX') ? ' selected="selected"' : '';?>>EX</option>
-                                          <option value="Laundry" <?php echo (g('type') ==  'LD') ? ' selected="selected"' : '';?>>LD</option>
-                                      </select>
+                                          <option value="day" <?php echo (g('date_drop_laundry') ==  'Day') ? ' selected="selected"' : '';?>>Day</option>
+                                          <option value="month" <?php echo (g('date_drop_laundry') ==  'Month') ? ' selected="selected"' : '';?>>Month</option>
+                                          <option value="" <?php echo (g('date_drop_laundry') ==  'Year') ? ' selected="selected"' : '';?>>Year</option>
+                                      </select> -->
+                                      <div class="col-md-3"> 
+                                          <p style="font-size:14px">Day</p>
+                                          <input type="text" name="day" value="" class="form-control">
+                                      </div>
+                                      <div class="col-md-3">  
+                                          <p style="font-size:14px">Month</p>
+                                          <input type="text" name="month" value="" class="form-control">
+                                      </div>
                                       <br>
-                                      <p style="font-size: 14px">Isi Filter</p>
-                                      <select class="form-control" name="status">
-                                          <option value=""></option>
-                                          <option value="Drop" <?php echo (g('status') ==  'Drop') ? ' selected="selected"' : '';?>>Drop</option>
-                                          <option value="Take" <?php echo (g('status') ==  'Take') ? ' selected="selected"' : '';?>>Take</option>
-                                          <option value="Finish" <?php echo (g('status') ==  'Finish') ? ' selected="selected"' : '';?>>Finish</option>
-                                      </select>
                                   </div>
                                   <div class="col-md-3">
                                       
@@ -74,13 +76,14 @@
                 <th scope="col">User Name</th>
                 <th scope="col">User Phone</th>
                 <th scope="col">User Address</th>
+                <th scope="col">Date Drop</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
           <tbody>
             <?php $id = 1; ?>
-            @foreach ($errors as $data)
+            @foreach ($coba as $data)
               <tr>
                 <th scope="row">{{ $id++ }}</th>
                 <td>{{ $data->code_order }}</td>
@@ -89,6 +92,7 @@
                 <td>{{ $data->user_name}}</td>
                 <td>{{ $data->user_phone}}</td>
                 <td>{{ $data->user_address}}</td>
+                <td>{{ $data->date_drop_laundry}}</td>
                 <td>{{ $data->status}}</td>
                 <td>
                   <a href="{{url('/backend/listorder/detaillistorder/'.$data->id)}}" class="btn btn-secondary"><i class="fas fa-file-alt"></i></a>
