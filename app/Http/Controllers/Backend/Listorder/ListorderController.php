@@ -137,9 +137,6 @@ class ListorderController extends Controller
     {
       $data ['coba'] = OrdersLaundryModel::findAll();
     }
-    // if ($request->status != '') {
-    //   $data['errors'] = DB::table('orders_laundry')->where('status', $request->status)->paginate(5);
-    // }
 
 		return view('backend/crudexcel/index', $data);
 	}
