@@ -246,7 +246,7 @@
             <label>Code Order</label>
         </div>
 
-        <button type="submit" class="btn" id="ambilpaket">Ambil Paket</button> 
+        <button type="submit" class="btn" id="ambilpaket" onclick="contoh()">Ambil Paket</button> 
     </form>
 
 </section>
@@ -312,6 +312,29 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- JS sweet alert end -->
+
+
+    <script type="text/javascript">
+        function contoh() {
+
+           swal({
+
+                title: "Paket Sudah Diambil!",
+
+                text: "Terimakasih Sudah Menggunakan Pelayanan Kami",
+
+                icon: "success",
+
+                button: true
+
+            });
+
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
      <!-- <script>
 $('#ambilpaket').click( function(){
