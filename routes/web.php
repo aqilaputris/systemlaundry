@@ -75,4 +75,4 @@ Route::get('/frontend/laundry',[FrontendController::class, 'laundry']);
 Route::post('/frontend/laundry',[FrontendController::class, 'postSave']);
 Route::get('/frontend/laundry/cari',[FrontendController::class, 'mencari'])->name('mencari');
 
-Route::get('/frontend/ambilpaket',[FrontendController::class, 'ambilpaket']);
+Route::post('/frontend/ambilpaket',[FrontendController::class, 'ambilpaket']);

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <!--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
 
 </head>
 <body>
@@ -235,7 +236,8 @@
         <img src="images/printnota.png" alt="">
     </div>
 
-    <form action="">
+    <form method="POST" action="{{url('/frontend/ambilpaket')}}">
+        @csrf
 
         <h1 class="heading">Ambil Paket</h1>
 
@@ -245,7 +247,6 @@
         </div>
 
         <button type="submit" class="btn" id="ambilpaket">Ambil Paket</button> 
-
     </form>
 
 </section>
@@ -309,9 +310,10 @@
     <!-- JS sweet alert -->
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- JS sweet alert end -->
 
-    <script>
+     <!-- <script>
 $('#ambilpaket').click( function(){
   swal({
     title: "Yakin ?",
@@ -331,7 +333,7 @@ $('#ambilpaket').click( function(){
     }
   });
 });
-</script>
+</script>  -->
 
 </body>
 </html>

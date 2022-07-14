@@ -92,7 +92,6 @@ class ListorderController extends Controller
         $data->user_phone = $request->user_phone;
         $data->user_address = $request->user_address;
         $data->date_take_laundry = now();
-        $data->date_finish_laundry = now();
         $data->status = $request->status;
         $data->save();
 
